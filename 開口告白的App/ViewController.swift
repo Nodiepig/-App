@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var Text: UITextField!
+    @IBAction func Buttonpress(_ sender: Any) {
+        
+        let speechUtterance = AVSpeechUtterance(string:Text.text!)
+        speechUtterance.voice =
+        AVSpeechSynthesisVoice(language: "zh-TW")
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(speechUtterance)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
